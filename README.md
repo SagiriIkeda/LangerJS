@@ -1,23 +1,7 @@
 # Langer
 Langer is a library to facilitate the creation of pages in various languages.
 
-#### JAVASCRIPT
-```js
-  LANGUAJE.set("ES")
-```
-#### HTML
+To install this library you must first link the js file in your **head** tag
 ```html
-
-    <lang>$key</lang>
+<script src="bin/Langer 5.js"></script>
 ```
-#### JSON 
-
-```json
-  
-  {
-     "key": "value"
-  }
-```
-
-
-
