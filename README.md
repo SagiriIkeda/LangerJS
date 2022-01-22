@@ -1,10 +1,16 @@
 # Langer
 Langer is a library to facilitate the creation of pages in various languages.
+Langer uses json files to have your page in one language or another.
 
 To install this library you must first link the js file in your **head** tag
 ```html
 <script src="bin/Langer 5.js"></script>
 ```
+you must use this syntax so that the content of your **.json** file can be returned
+```html
+<lang>$key</lang>
+```
+
 now to start using langer you must first instantiate the **LANGUAGE5** class in a variable with the settings you want.
 ```js
 let LANGUAJE = new LANGUAJE5({
@@ -22,7 +28,14 @@ your file structure where your languages are located look something like this
     ├── KO.json
     ...
 ```
-
+Example of some of your json files
+```json
+{
+    "$key": "¡Hellow world!",
+    "$settings": "Settings",
+    "$example": "this is an example using functions mat(4 + 5)",
+}
+```
 then you must indicate a folder where your languages will be found, for this use
 ```js
 //example
@@ -31,8 +44,16 @@ LANGUAJE.setRoute("json/");
 Now, to set the language of the page, you must indicate the **.json** file that will be used
 ```js
 //example
-LANGUAJE.set("EN");
+LANGUAJE.set("EN"); //the information is being obtained in: "json/EN.json"
 ```
+Good! If no error occurred, your label should look like this
+```html
+<!--before-->
+<lang>$key</lang>
+<!--after-->
+<lang>¡Hellow world!</lang>
+```
+¡
 
 
 
