@@ -1,8 +1,8 @@
 # Langer
 Langer is a library to facilitate the creation of pages in various languages.
 
-
 Langer uses json files to have your page in one language or another.
+
 `NOTE: this documentation is only for version 5.0.0 onwards`
 
 To install this library you must first link the js file in your **head** tag
