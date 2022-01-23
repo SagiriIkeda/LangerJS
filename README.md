@@ -121,8 +121,7 @@ If at the time of instantiating the `LANGUAJE5` class you set its `autosave` par
 |---|---|
 | `LANGUAJE.setRoute(rout)` | parameter string: set folder where the json files will be obtained |
 | `LANGUAJE.set(filename)` | parameter string: set file from which the language information will be obtained |
-| `LANGUAJE.Update()` | which allows updating the content of elements that were added after LANGUAJE.set(filename) |
-
+| `LANGUAJE.Update()` | which allows updating the content of elements that were added after `LANGUAJE.set(filename)` |
 
 
 
