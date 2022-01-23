@@ -1,6 +1,6 @@
 /*
     Langer 5 DEBUG version
-    LICENCE MIT DouglasAndresMorenoReinaldo©2022
+    LICENCE MIT DouglasAndres2020
 ===========================================================>
 */
 class LANGUAJE5 {
