@@ -82,7 +82,7 @@ the functions serve to abbreviate or return something in string of the json obta
 mi(icon) //return a material-design icon example <i class="material-icon">icon</i>
 lang(key) //return some language key
 mat(operation) //returns the resolution of a mathematical operation
-var(var) //return a variable from your js code
+var(var) //return a variable content from your js code
 ```
 ### create your own functions
 to create your own functions you should use `LENGUAJE.setFunction(functions)`
