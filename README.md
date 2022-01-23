@@ -90,7 +90,7 @@ to create your own functions you should use `LANGUAJE.setFunction(functions)`
 //example
 LANGUAJE.setFunction(
     function hello(value) {
-        return "¡Hellow World!" //functions must necessarily return something.
+        return "¡Hellow World!" + value; //functions must necessarily return something.
     },
     function tree(value) {
         return "Forest"
