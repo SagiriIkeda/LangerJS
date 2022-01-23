@@ -54,7 +54,7 @@ Good! If no error occurred, your label should look like this
 <!--after-->
 <lang>¡Hellow world!</lang>
 ```
-And every time you use `LANGUAJE.set(language)` the elements will be updated to the new language!  
+And every time you use `LANGUAJE.set(filename)` the elements will be updated to the new language!  
 
 if instead of passing a string you pass an object as a parameter to `LANGUAJE.set()`, it will not look for a file but use the passed object as a language  
 
