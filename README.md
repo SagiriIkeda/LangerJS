@@ -14,9 +14,9 @@ you must use this syntax so that the content of your **.json** file can be retur
 <lang>$key</lang>
 ```
 
-now to start using langer you must first instantiate the `LENGUAJE5` class in a variable with the settings you want.
+now to start using langer you must first instantiate the `LANGUAJE5` class in a variable with the settings you want.
 ```js
-let LANGUAJE = new LENGUAJE5({
+let LANGUAJE = new LANGUAJE5({
     functions: true, //bolean: activate the functions in the json strings
     markdown: true, //bolean: activate the transformation by markdown
     autosave: true //bolean: allows saving and loading the last language selected by the user.
@@ -42,12 +42,12 @@ Example of some of your json files
 then you must indicate a folder where your languages will be found, for this use
 ```js
 //example
-LENGUAJE.setRoute("json/");
+LANGUAJE.setRoute("json/");
 ```
 Now, to set the language of the page, you must indicate the **.json** file that will be used
 ```js
 //example
-LENGUAJE.set("EN"); //the information is being obtained in: "json/EN.json"
+LANGUAJE.set("EN"); //the information is being obtained in: "json/EN.json"
 ```
 Good! If no error occurred, your label should look like this
 ```html
@@ -56,7 +56,7 @@ Good! If no error occurred, your label should look like this
 <!--after-->
 <lang>¡Hellow world!</lang>
 ```
-And every time you use `LENGUAJE.set(language)` the elements will be updated to the new language!
+And every time you use `LANGUAJE.set(language)` the elements will be updated to the new language!
 
 ## Functions
 
@@ -85,7 +85,7 @@ mat(operation) //returns the resolution of a mathematical operation
 var(var) //return a variable content from your js code
 ```
 ### create your own functions
-to create your own functions you should use `LENGUAJE.setFunction(functions)`
+to create your own functions you should use `LANGUAJE.setFunction(functions)`
 ```js
 //example
 LANGUAJE.setFunction(
@@ -97,7 +97,7 @@ LANGUAJE.setFunction(
     }
 );
 ```
-`NOTE: for your functions to be executed they must be defined before using LENGUAJE.set()`
+`NOTE: for your functions to be executed they must be defined before using LANGUAJE.set()`
 
 ### Disable Functions
 if your element has the `noFunctions` attribute the functions will not be executed on it
@@ -109,7 +109,7 @@ if your element has the `noFunctions` attribute the functions will not be execut
 ```
 
 ## Auto save last lenguage
-If at the time of instantiating the `LENGUAJE5` class you set its `autosave` parameters to true, the last used language will be saved and at the time of reloading the page it will automatically be loaded.
+If at the time of instantiating the `LANGUAJE5` class you set its `autosave` parameters to true, the last used language will be saved and at the time of reloading the page it will automatically be loaded.
 ```js
  let LANGUAJE = new LANGUAJE5({
      autosave: true //bolean: allows saving and loading the last language selected by the user.
@@ -121,7 +121,7 @@ If at the time of instantiating the `LENGUAJE5` class you set its `autosave` par
 |---|---|
 | `LANGUAJE.setRoute(rout)` | parameter string: set folder where the json files will be obtained |
 | `LANGUAJE.set(filename)` | parameter string: set file from which the language information will be obtained |
-| `LENGUAJE.Update()` | which allows updating the content of elements that were added after LENGUAJE.set(language) |
+| `LANGUAJE.Update()` | which allows updating the content of elements that were added after LANGUAJE.set(filename) |
 
 
 
