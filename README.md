@@ -71,7 +71,7 @@ the functions serve to abbreviate or return something in string of the json obta
 
 ```html
 <!-- before -->
-<lang>key</lang>
+<lang>$key</lang>
 <!-- after -->
 <lang>this is an example using functions 9</lang>
 ```
