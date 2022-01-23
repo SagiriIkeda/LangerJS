@@ -3,7 +3,7 @@ Langer is a library to facilitate the creation of pages in various languages.
 
 Langer uses json files to have your page in one language or another.
 
-`NOTE: this documentation is only for version 5.0.0 onwards`
+`NOTE: this documentation is only for version 5.1.0 onwards`
 
 To install this library you must first link the js file in your **head** tag
 ```html
@@ -56,7 +56,24 @@ Good! If no error occurred, your label should look like this
 <!--after-->
 <lang>¡Hellow world!</lang>
 ```
-And every time you use `LANGUAJE.set(language)` the elements will be updated to the new language!
+And every time you use `LANGUAJE.set(language)` the elements will be updated to the new language!  
+
+if instead of passing a string you pass an object as a parameter to `LANGUAJE.set()`, it will not look for a file but use the passed object as a language  
+
+`example`
+```js
+LANGUAJE.set({
+    $key: "Hellow World without using a file!",
+    $settings: "Settings"
+}); 
+``` 
+`result`
+```html
+<!-- before -->
+<lang>$key</lang>
+<!-- after -->
+<lang>Hellow world without using a file!</lang>
+```
 
 ## Functions
 
