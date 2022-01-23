@@ -11,7 +11,7 @@ you must use this syntax so that the content of your **.json** file can be retur
 <lang>$key</lang>
 ```
 
-now to start using langer you must first instantiate the **LENGUAJE5** class in a variable with the settings you want.
+now to start using langer you must first instantiate the `LENGUAJE5` class in a variable with the settings you want.
 ```js
 let LANGUAJE = new LENGUAJE5({
     functions: true, //bolean: activate the functions in the json strings
@@ -53,7 +53,7 @@ Good! If no error occurred, your label should look like this
 <!--after-->
 <lang>¡Hellow world!</lang>
 ```
-And every time you use **LENGUAJE.set(language)** the elements will be updated to the new language!
+And every time you use `LENGUAJE.set(language)` the elements will be updated to the new language!
 
 ## Functions
 
@@ -95,6 +95,24 @@ LANGUAJE.setFunction(
 );
 ```
 `NOTE: for your functions to be executed they must be defined before using LENGUAJE.set()`
+
+### Disable Functions
+if your element has the `noFunctions` attribute the functions will not be executed on it
+```html
+<!-- before -->
+<lang noFunctions>$key</lang>
+<!-- after -->
+<lang noFunctions>this is an example using functions mat(4 + 5)</lang>
+```
+
+## Auto save last lenguage
+If at the time of instantiating the `LENGUAJE5` class you set its `autosave` parameters to true, the last used language will be saved and at the time of reloading the page it will automatically be loaded.
+```js
+ let LANGUAJE = new LANGUAJE5({
+     autosave: true //bolean: allows saving and loading the last language selected by the user.
+ });
+```
+
 
 
 
