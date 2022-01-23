@@ -11,9 +11,9 @@ you must use this syntax so that the content of your **.json** file can be retur
 <lang>$key</lang>
 ```
 
-now to start using langer you must first instantiate the **LANGUAGE5** class in a variable with the settings you want.
+now to start using langer you must first instantiate the **LENGUAJE5** class in a variable with the settings you want.
 ```js
-let LANGUAJE = new LANGUAJE5({
+let LANGUAJE = new LENGUAJE5({
     functions: true, //bolean: activate the functions in the json strings
     markdown: true, //bolean: activate the transformation by markdown
     autosave: true //bolean: allows saving and loading the last language selected by the user.
@@ -33,18 +33,18 @@ Example of some of your json files
 {
     "$key": "¡Hellow world!",
     "$settings": "Settings",
-    "$example": "this is an example using functions mat(4 + 5)",
+    "$example": "this is an example using functions mat(4 + 5)"
 }
 ```
 then you must indicate a folder where your languages will be found, for this use
 ```js
 //example
-LANGUAJE.setRoute("json/");
+LENGUAJE.setRoute("json/");
 ```
 Now, to set the language of the page, you must indicate the **.json** file that will be used
 ```js
 //example
-LANGUAJE.set("EN"); //the information is being obtained in: "json/EN.json"
+LENGUAJE.set("EN"); //the information is being obtained in: "json/EN.json"
 ```
 Good! If no error occurred, your label should look like this
 ```html
@@ -53,7 +53,49 @@ Good! If no error occurred, your label should look like this
 <!--after-->
 <lang>¡Hellow world!</lang>
 ```
-¡
+And every time you use **LENGUAJE.set(language)** the elements will be updated to the new language!
+
+## Functions
+
+the functions serve to abbreviate or return something in string of the json obtained
+`example`
+<br>
+```json
+{
+    "$key": "this is an example using functions mat(4 + 5)"
+}
+```
+
+```html
+<!-- before -->
+<lang>key</lang>
+<!-- after -->
+<lang>this is an example using functions 9</lang>
+```
+
+### Defaults Functions
+
+```js
+mi(icon) //return a material-design icon example <i class="material-icon">icon</i>
+lang(key) //return some language key
+mat(operation) //returns the resolution of a mathematical operation
+var(var) //return a variable from your js code
+```
+### create your own functions
+to create your own functions you should use `LENGUAJE.setFunction(functions)`
+```js
+//example
+LANGUAJE.setFunction(
+    function hello(value) {
+        return "¡Hellow World!" //functions must necessarily return something.
+    },
+    function tree(value) {
+        return "Forest"
+    }
+);
+```
+`NOTE: for your functions to be executed they must be defined before using LENGUAJE.set()`
+
 
 
 
