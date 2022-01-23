@@ -114,12 +114,11 @@ If at the time of instantiating the `LENGUAJE5` class you set its `autosave` par
 ```
 
 ## Langer Functions 
-
-| function | action | parameter |
-|---|---|---|
-| LANGUAJE.setRoute(rout) | parameter string: set folder where the json files will be obtained | string: folder where the json files will be obtained |
-| LANGUAJE.set(file) | parameter string: set file from which the language information will be obtained | string: file from which the language information will be obtained |
-| LENGUAJE.Update() | which allows updating the content of elements that were added after LANGUAJE.set(language) |  |
+| function | action |
+|---|---|
+| `LANGUAJE.setRoute(rout)` | parameter string: set folder where the json files will be obtained |
+| `LANGUAJE.set(filename)` | parameter string: set file from which the language information will be obtained |
+| `LENGUAJE.Update()` | which allows updating the content of elements that were added after LANGUAJE.set(language) |
 
 
 
