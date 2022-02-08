@@ -1,8 +1,9 @@
 /*
-    Langer 5.1 DEBUG version
+    Langer 5.5 DEBUG version
     LICENCE MIT DouglasAndres©2020
 ===========================================================>
 */
+
 class LANGUAJE5 {
     constructor ({functions = true,markdown = true,autosave = false} = {}) {
         let self = this;
@@ -17,7 +18,8 @@ class LANGUAJE5 {
         }
         this.config = {
             CACHE: {},
-            lang: ""
+            lang: "",
+            lastLang: {}
         }
         this.functions = {
             mi(value) {
@@ -51,6 +53,10 @@ class LANGUAJE5 {
         if(localStorage.getItem(`${this.name}`) != undefined && this.allow.autosave == true){
             this.config.lang = JSON.parse(localStorage.getItem(`${this.name}`));
         }
+        let style = document.createElement("style");
+        style.innerHTML = `lang {display: none;}lang[use]{display: block;}`;
+        document.head.appendChild(style)
+
     }
     //OBTENER LA DATA
     async get(lang) {
@@ -102,17 +108,11 @@ class LANGUAJE5 {
     markdown(string) {
         if(this.allow.markdown == true){
             let tag = (tag,content) => `<${tag}>${content}</${tag}>`;
-            string = string.replace(/(__)([^_]+)(__)/gims, (f,fir,cont,sec) => {
-                return tag("strong",cont);
+            string = string.replace(/((\*\*|\_\_))([^*]+)(\1)/gims, (f,fir,cont,sec) => {
+                return tag("strong",sec);
             })
-            string = string.replace(/(_)([^_]+)(_)/gims, (f,fir,cont,sec) => {
-                return tag("em",cont);
-            })
-            string = string.replace(/(\*\*)([^*]+)(\*\*)/gims, (f,fir,cont,sec) => {
-                return tag("strong",cont);
-            })
-            string = string.replace(/(\*)([^*]+)(\*)/gims, (f,fir,cont,sec) => {
-                return tag("em",cont);
+            string = string.replace(/((\*|\_))([^*]+)(\1)/gims, (f,fir,cont,sec) => {
+                return tag("em",sec);
             })
             string = string.replace(/(~~)([^~]+)(~~)/gims, (f,fir,cont,sec) => {
                 return tag("del",cont);
@@ -120,10 +120,14 @@ class LANGUAJE5 {
         }
         return string;
     }
-
+    getKey(key = "") {
+        if(typeof key == "string"){
+            return this.config.lastLang[key];
+        }
+    }
     //PINTAR LA DATA
-    async set(lang){
-        if(lang == null || lang == undefined || ["string","object"].includes(typeof lang) == false) {
+    async set(lang = ""){
+        if(lang == null || lang == undefined || ["string","object"].includes(typeof lang) == false || Array.isArray(lang) == true) {
             console.error(`${this.name} Error:\n LANGUAJE.set() can only receive a string or an object as a parameter.`)
             return false;
         }
@@ -136,10 +140,12 @@ class LANGUAJE5 {
         }
         //print data
         let data = (typeof lang == "object")? lang : await this.get(lang);
+        this.config.lastLang = data;
         let inform = false;
         if(data != false) {
             setTimeout(() => {
                 document.querySelectorAll('lang').forEach(langElm => {
+                    langElm.setAttribute('use',"")
                     if(langElm.lenguaje != undefined && langElm.lenguaje == lang){
                         if(inform == false){
                             console.log(`%c${this.name} Debug:\n Same language only new elements will be updated`,this.color)
@@ -159,7 +165,7 @@ class LANGUAJE5 {
         }
     }
     Update() {
-        this.set(this.config.lang)
+        this.set(this.config.lastLang)
     }
     setFunction(...funcs) {
         funcs.forEach(func => {
