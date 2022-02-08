@@ -145,6 +145,8 @@ If at the time of instantiating the `LANGUAJE5` class you set its `autosave` par
 <div class="myclass"><lang>key</lang></div>
 ```
 
+`Thank you for reading! sorry for the mistakes in this documentation :sweat_smile:`
+
 
 
 
