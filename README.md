@@ -9,7 +9,7 @@ To install this library you must first link the js file in your **head** tag
 ```
 you must use this syntax so that the content of your **.json** file can be returned
 ```html
-<lang>$key</lang>
+<lang>key</lang>
 ```
 
 now to start using langer you must first instantiate the `LANGUAJE5` class in a variable with the settings you want.
@@ -32,9 +32,9 @@ your file structure where your languages are located look something like this
 Example of some of your json files
 ```json
 {
-    "$key": "¡Hellow world!",
-    "$settings": "Settings",
-    "$example": "this is an example using functions mat(4 + 5)"
+    "key": "¡Hellow world!",
+    "settings": "Settings",
+    "example": "this is an example using functions mat(4 + 5)"
 }
 ```
 then you must indicate a folder where your languages will be found, for this use
@@ -49,9 +49,9 @@ LANGUAJE.set("EN"); //the information is being obtained in: "json/EN.json"
 ```
 Good! If no error occurred, your label should look like this
 ```html
-<!--before-->
-<lang>$key</lang>
-<!--after-->
+<!-- before -->
+<lang>key</lang>
+<!-- after use LANGUAJE.set() -->
 <lang>¡Hellow world!</lang>
 ```
 And every time you use `LANGUAJE.set(filename)` the elements will be updated to the new language!  
@@ -61,14 +61,14 @@ if instead of passing a string you pass an object as a parameter to `LANGUAJE.se
 `example`
 ```js
 LANGUAJE.set({
-    $key: "Hellow World without using a file!",
-    $settings: "Settings"
+    key: "Hellow World without using a file!",
+    settings: "Settings"
 }); 
 ``` 
 `result`
 ```html
 <!-- before -->
-<lang>$key</lang>
+<lang>key</lang>
 <!-- after -->
 <lang>Hellow world without using a file!</lang>
 ```
@@ -80,14 +80,14 @@ the functions serve to abbreviate or return something in string of the json obta
 <br>
 ```json
 {
-    "$key": "this is an example using functions mat(4 + 5)"
+    "key": "this is an example using functions mat(4 + 5)"
 }
 ```
 
 ```html
 <!-- before -->
-<lang>$key</lang>
-<!-- after -->
+<lang>key</lang>
+<!-- after use LANGUAJE.set() -->
 <lang>this is an example using functions 9</lang>
 ```
 
@@ -118,8 +118,8 @@ LANGUAJE.setFunction(
 if your element has the `noFunctions` attribute the functions will not be executed on it
 ```html
 <!-- before -->
-<lang noFunctions>$key</lang>
-<!-- after -->
+<lang noFunctions>key</lang>
+<!-- after use LANGUAJE.set() -->
 <lang noFunctions>this is an example using functions mat(4 + 5)</lang>
 ```
 
@@ -135,7 +135,7 @@ If at the time of instantiating the `LANGUAJE5` class you set its `autosave` par
 | function | action |
 |---|---|
 | `LANGUAJE.setRoute(rout)` | parameter string: set folder where the json files will be obtained |
-| `LANGUAJE.set(filename)` | parameter string: set file from which the language information will be obtained |
+| `LANGUAJE.set(filename)` | parameter string or object: set file from which the language information will be obtained |
 | `LANGUAJE.Update()` | which allows updating the content of elements that were added after `LANGUAJE.set(filename)` |
 
 
