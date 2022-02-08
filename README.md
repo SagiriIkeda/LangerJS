@@ -138,11 +138,11 @@ If at the time of instantiating the `LANGUAJE5` class you set its `autosave` par
 | `LANGUAJE.set(filename)` | parameter string or object: set file from which the language data will be obtained |
 | `LANGUAJE.Update()` | which allows updating the content of elements that were added after `LANGUAJE.set(filename)` |
 
-#Important Note
+## Important Note
 `lang` elements are only to show the content of your data, if you want to style it or apply some class to it, it is recommended that you enclose it inside another element or a `div`.
 ```html
 <!-- example -->
-<div class"myclass"><lang>key</lang></div>
+<div class="myclass"><lang>key</lang></div>
 ```
 
 
