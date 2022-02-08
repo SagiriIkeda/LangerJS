@@ -5,7 +5,7 @@ Langer uses json files to have your page in one language or another.
 
 To install this library you must first link the js file in your `head` tag
 ```html
-<script src="https://cdn.jsdelivr.net/gh/DouglasAndres2020/Langer@5.1.0/src/Langer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/DouglasAndres2020/Langer@5.5.0/src/Langer.min.js"></script>
 ```
 you must use this syntax so that the content of your **.json** file can be returned
 ```html
@@ -137,6 +137,13 @@ If at the time of instantiating the `LANGUAJE5` class you set its `autosave` par
 | `LANGUAJE.setRoute(rout)` | parameter string: set folder where the json files will be obtained |
 | `LANGUAJE.set(filename)` | parameter string or object: set file from which the language data will be obtained |
 | `LANGUAJE.Update()` | which allows updating the content of elements that were added after `LANGUAJE.set(filename)` |
+
+#Important Note
+`lang` elements are only to show the content of your data, if you want to style it or apply some class to it, it is recommended that you enclose it inside another element or a `div`.
+```html
+<!-- example -->
+<div class"myclass"><lang>key</lang></div>
+```
 
 
 
