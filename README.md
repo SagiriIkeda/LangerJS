@@ -3,7 +3,7 @@ Langer is a library to facilitate the creation of pages in various languages.
 
 Langer uses json files to have your page in one language or another.
 
-To install this library you must first link the js file in your **head** tag
+To install this library you must first link the js file in your `head` tag
 ```html
 <script src="https://cdn.jsdelivr.net/gh/DouglasAndres2020/Langer@5.1.0/src/Langer.min.js"></script>
 ```
@@ -45,7 +45,7 @@ LANGUAJE.setRoute("json/");
 Now, to set the language of the page, you must indicate the **.json** file that will be used
 ```js
 //example
-LANGUAJE.set("EN"); //the information is being obtained in: "json/EN.json"
+LANGUAJE.set("EN"); //the data is being obtained in: "json/EN.json"
 ```
 Good! If no error occurred, your label should look like this
 ```html
@@ -69,7 +69,7 @@ LANGUAJE.set({
 ```html
 <!-- before -->
 <lang>key</lang>
-<!-- after -->
+<!-- after use LANGUAJE.set() -->
 <lang>Hellow world without using a file!</lang>
 ```
 
@@ -135,7 +135,7 @@ If at the time of instantiating the `LANGUAJE5` class you set its `autosave` par
 | function | action |
 |---|---|
 | `LANGUAJE.setRoute(rout)` | parameter string: set folder where the json files will be obtained |
-| `LANGUAJE.set(filename)` | parameter string or object: set file from which the language information will be obtained |
+| `LANGUAJE.set(filename)` | parameter string or object: set file from which the language data will be obtained |
 | `LANGUAJE.Update()` | which allows updating the content of elements that were added after `LANGUAJE.set(filename)` |
 
 
