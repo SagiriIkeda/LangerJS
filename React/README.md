@@ -7,7 +7,7 @@ We recommend **reading** the **documentation of the normal version first** in or
 **to install this version use**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/DouglasAndres2020/Langer@5.5.2/React/Langer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/DouglasAndres2020/Langer@5.7.0/React/Langer.min.js"></script>
 ```
 
 the way to initialize is the same as the normal version!
