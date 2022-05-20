@@ -2,7 +2,9 @@
 
 Version of Langer compatible with React JS `Note: If your project does not use React do not use this version`
 
-to install this version use
+We recommend **reading** the **documentation of the normal version first** in order to **understand** things **better**.
+
+**to install this version use**
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/DouglasAndres2020/Langer@5.5.2/React/Langer.min.js"></script>
@@ -29,3 +31,18 @@ but, the way to create elements now is using `Lang` components! Which will be up
 ```js
 <Lang>key</Lang>
 ```
+
+## Placeholders `BETA`
+the way to use placeholders with react is different, to use them you must add the `place` property to your `lang` component with an object with the placeholders you want
+
+```json
+{
+    "test":"Welcome, %user%"
+}
+```
+```js
+//example
+<Lang place={{user:"Example"}}>test</Lang>
+```
+
+
