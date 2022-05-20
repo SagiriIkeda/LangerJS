@@ -1,5 +1,5 @@
 /*
-    Langer 5.5 DEBUG version
+    Langer 5.7 DEBUG version
     LICENCE MIT DouglasAndres©2020
 ===========================================================>
 */
@@ -125,6 +125,23 @@ class LANGUAJE5 {
             return this.config.lastLang[key];
         }
     }
+    PlaceholdersMotor(string,langElm) {
+        return string.replace(/%([A-Z_0-9\-]+)%/gim,(e,holder) => {
+            //Denieds Attrs holders
+            if(["class","style","id"].includes(holder)){
+                return e;
+            }
+            if(langElm.getAttribute(holder) != undefined){
+                let KeyHolder = langElm.getAttribute(holder);
+                return KeyHolder;
+            }
+            return e
+        })
+    }
+
+    StringGenerator(str,langElm) {
+        return this.PlaceholdersMotor(this.markdown((str)? (this.allow.functions == true && langElm.getAttribute('noFunctions') == undefined)? this.motor(str): str : ""),langElm);
+    }
     //PINTAR LA DATA
     async set(lang = ""){
         if(lang == null || lang == undefined || ["string","object"].includes(typeof lang) == false || Array.isArray(lang) == true) {
@@ -159,7 +176,7 @@ class LANGUAJE5 {
                     }
                     langElm.lenguaje = lang;
                     let key = data[langElm.target] ?? "(undefined)";
-                    langElm.innerHTML = this.markdown((key)? (this.allow.functions == true && langElm.getAttribute('noFunctions') == undefined)? this.motor(key): key : "");
+                    langElm.innerHTML = this.StringGenerator(key,langElm);
                 })
             }, 0);
         }
