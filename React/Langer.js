@@ -1,5 +1,5 @@
 /*
-    Langer 5.5.React.1 DEBUG version
+    Langer 5.7.React.1.2 DEBUG version
     LICENCE MIT DouglasAndres©2020
 ===========================================================>
 */
@@ -7,7 +7,6 @@ class LANGUAJE5 {
     constructor ({functions = true,markdown = true,autosave = false} = {}) {
         let self = this;
 		this.stor = false;
-        this.name = this.constructor.name;
         this.color = "color:#FFC107";
         this.route = undefined;
         this.allow = {
@@ -49,8 +48,8 @@ class LANGUAJE5 {
             },
         };
         // leer la cache del localStorage
-        if(localStorage.getItem(`${this.name}`) != undefined && this.allow.autosave == true){
-            this.config.lang = JSON.parse(localStorage.getItem(`${this.name}`));
+        if(localStorage.getItem("LANGUAJE5") != undefined && this.allow.autosave == true){
+            this.config.lang = JSON.parse(localStorage.getItem("LANGUAJE5"));
         }
         let style = document.createElement("style");
         style.innerHTML = `lang-5 {display: none;}lang-5[use]{display: inline;}`;
@@ -62,7 +61,7 @@ class LANGUAJE5 {
         let self = this;
         let rtn = false;
         if(this.route == undefined){
-            console.error(`${this.name} Error: \n you need to set a path to get the json files \n use LANGUAJE.setRoute()`);
+            console.error(`LANGUAJE5 Error: \n you need to set a path to get the json files \n use LANGUAJE.setRoute()`);
             return false;
         }
         if(self.config.CACHE[lang] == undefined){
@@ -73,20 +72,20 @@ class LANGUAJE5 {
                 // guarda en la local cache el nuevo lenguaje
                 self.config.CACHE[lang] = response;
                 self.config.lang = lang;
-                localStorage.setItem(`${this.name}`,JSON.stringify(self.config.lang))
+                localStorage.setItem("LANGUAJE5",JSON.stringify(self.config.lang))
                 //retorna el lenguaje
                 let timeEnd = Date.now();
-                console.log(`%c${this.name} Debug:\nfiles were obtained in ${timeEnd - timeStart}ms`,this.color)
+                console.log(`%cLANGUAJE5 Debug:\nfiles were obtained in ${timeEnd - timeStart}ms`,this.color)
                 rtn = self.config.CACHE[lang];
             }).catch(error => {
-                console.error(`${this.name} Error: \nan error occurred, could not get the json files`);
+                console.error(`LANGUAJE5 Error: \nan error occurred, could not get the json files`);
                 rtn = false;
             });
         }else {
             self.config.lang = lang;
-            localStorage.setItem(`${this.name}`,JSON.stringify(self.config.lang))
+            localStorage.setItem("LANGUAJE5",JSON.stringify(self.config.lang))
             //retorna el lenguaje guardado previamente guardado en la local cache
-            console.log(`%c${this.name} Debug:\nContent loaded from local cache.`,this.color);
+            console.log(`%cLANGUAJE5 Debug:\nContent loaded from local cache.`,this.color);
             rtn = self.config.CACHE[lang];
         }
         return rtn;
@@ -124,14 +123,29 @@ class LANGUAJE5 {
             return this.config.lastLang[key];
         }
     }
+    //MotorPlacelhoders
+    PlaceholdersMotor(string,langElm) {
+        return string.replace(/%([A-Z_0-9\-]+)%/gim,(e,holder) => {
+            //Denieds Attrs holders
+            if(["class","style","id"].includes(holder)){
+                return e;
+            }
+            if(langElm.getAttribute(holder) != undefined){
+                let KeyHolder = langElm.getAttribute(holder);
+                return KeyHolder;
+            }
+            return e
+        })
+    }
+
     StringGenerator(str,langElm) {
-        return this.markdown((str)? (this.allow.functions == true && langElm.getAttribute('noFunctions') == undefined)? this.motor(str): str : "")
+        return this.PlaceholdersMotor(this.markdown((str)? (this.allow.functions == true && langElm.getAttribute('noFunctions') == undefined)? this.motor(str): str : ""),langElm);
     }
 
     //PINTAR LA DATA
     async set(lang = ""){
         if(lang == null || lang == undefined || ["string","object"].includes(typeof lang) == false || Array.isArray(lang) == true) {
-            console.error(`${this.name} Error:\n LANGUAJE.set() can only receive a string or an object as a parameter.`)
+            console.error(`LANGUAJE5 Error:\n LANGUAJE.set() can only receive a string or an object as a parameter.`)
             return false;
         }
         //autosave
@@ -151,7 +165,7 @@ class LANGUAJE5 {
                     langElm.setAttribute('use',"")
                     if(langElm.lenguaje != undefined && langElm.lenguaje == lang){
                         if(inform == false){
-                            console.log(`%c${this.name} Debug:\n Same language only new elements will be updated`,this.color)
+                            console.log(`%cLANGUAJE5 Debug:\n Same language only new elements will be updated`,this.color)
                             inform = true;
                         }
                         return false;
@@ -179,7 +193,7 @@ class LANGUAJE5 {
         if(typeof direction == "string"){
             this.route = direction;
         }else {
-            console.error(`${this.name} Error:\n LANGUAJE.setRout() can only receive a string as a parameter.`)
+            console.error(`LANGUAJE5 Error:\n LANGUAJE.setRout() can only receive a string as a parameter.`)
         }
     }
 }
@@ -206,6 +220,10 @@ function Lang(props) {
     if(props.noFunctions == true){
         configs['noFunctions'] = true;
     }
+    if(props.place != undefined){
+        configs = {...configs,...props.place};
+    }
+
     return React.createElement("lang-5", configs, props.children);
 }
 
