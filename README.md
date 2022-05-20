@@ -130,6 +130,29 @@ If at the time of instantiating the `LANGUAJE5` class you set its `autosave` par
      autosave: true //bolean: allows saving and loading the last language selected by the user.
  });
 ```
+## PlaceHolders `BETA`
+Placeholders are used to display something that is not static, such as the name of a User
+
+the syntax of the placeholders is the following for the .json:
+
+```json
+{
+    "test": "Hello, %user%"
+}
+```
+In order for the `%user%` placeholder to be **replaced** with the **content** you want, you must add an **attribute** with the same name as the **placeholder** to your `lang` element.
+
+```html
+<!-- Before use LANGUAJE.set() -->
+<lang user="Example">test</lang>
+
+<!-- After use LANGUAJE.set() -->
+<lang user="Example">Hello, Example</lang>
+```
+`NOTE: 
+for the placeholder to change, you must make sure that when you change the attribute it is before doing LANGUAGE.set()`
+
+
 
 ## Langer Functions 
 | function | action |
