@@ -5,16 +5,16 @@ Langer uses json files to have your page in one language or another.
 
 To install this library you must first link the js file in your `head` tag
 ```html
-<script src="https://cdn.jsdelivr.net/gh/DouglasAndres2020/Langer@5.7.0/src/Langer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/DouglasAndres2020/Langer@6/src/Langer.min.js"></script>
 ```
 you must use this syntax so that the content of your **.json** file can be returned
 ```html
 <lang>key</lang>
 ```
 
-now to start using langer you must first instantiate the `LANGUAJE5` class in a variable with the settings you want.
+now to start using langer you must first instantiate the `LANGUAJE6` class in a variable with the settings you want.
 ```js
-let LANGUAJE = new LANGUAJE5({
+let LANGUAJE = new LANGUAJE6({
     functions: true, //bolean: activate the functions in the json strings
     markdown: true, //bolean: activate the transformation by markdown
     autosave: true //bolean: allows saving and loading the last language selected by the user.
@@ -90,15 +90,18 @@ the functions serve to abbreviate or return something in string of the json obta
 <!-- after use LANGUAJE.set() -->
 <lang>this is an example using functions 9</lang>
 ```
+``
+
 
 ### Defaults Functions
 
 ```js
-mi(icon) //return a material-design icon example <i class="material-icon">icon</i>
 lang(key) //return some language key
-mat(operation) //returns the resolution of a mathematical operation
 var(var) //return a variable content from your js code
 ```
+
+`Note: It should be noted that the mat function was removed in version 6.0`
+
 ### create your own functions
 to create your own functions you should use `LANGUAJE.setFunction(functions)`
 ```js
@@ -126,11 +129,11 @@ if your element has the `noFunctions` attribute the functions will not be execut
 ## Auto save last lenguage
 If at the time of instantiating the `LANGUAJE5` class you set its `autosave` parameters to true, the last used language will be saved and at the time of reloading the page it will automatically be loaded.
 ```js
- let LANGUAJE = new LANGUAJE5({
+ let LANGUAJE = new LANGUAJE6({
      autosave: true //bolean: allows saving and loading the last language selected by the user.
  });
 ```
-## PlaceHolders `BETA`
+## PlaceHolders
 Placeholders are used to display something that is not static, such as the name of a User
 
 the syntax of the placeholders is the following for the .json:
