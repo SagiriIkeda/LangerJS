@@ -17,7 +17,8 @@ now to start using langer you must first instantiate the `LANGUAJE6` class in a 
 let LANGUAJE = new LANGUAJE6({
     functions: true, //bolean: activate the functions in the json strings
     markdown: true, //bolean: activate the transformation by markdown
-    autosave: true //bolean: allows saving and loading the last language selected by the user.
+    autosave: true, //bolean: allows saving and loading the last language selected by the user.
+    defaultText:"(undefined)" //string: Text that will be used in case a key is not found in the selected language.
 });
 ```
 your file structure where your languages are located look something like this
