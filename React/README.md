@@ -15,7 +15,7 @@ the way to initialize is the same as the normal version!
 let LANGUAJE = new LANGUAJE5({
     functions: true, //bolean: activate the functions in the json strings
     markdown: true, //bolean: activate the transformation by markdown
-    autosave: true //bolean: allows saving and loading the last language selected by the user.
+    autosave: true, //bolean: allows saving and loading the last language selected by the user.
     defaultText:"(undefined)" //string: Text that will be used in case a key is not found in the selected language.
 });
 ```
