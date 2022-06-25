@@ -7,7 +7,7 @@ Langer uses json files to have your page in one language or another.
 
 To install this library you must first link the js file in your `head` tag
 ```html
-<script src="https://cdn.jsdelivr.net/gh/DouglasAndres2020/Langer@6/src/Langer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/SagiriIkeda/Langer@6/src/Langer.min.js"></script>
 ```
 you must use this syntax so that the content of your **.json** file can be returned
 ```html
@@ -158,13 +158,34 @@ In order for the `%user%` placeholder to be **replaced** with the **content** yo
 `NOTE: 
 for the placeholder to change, you must make sure that when you change the attribute it is before doing LANGUAGE.set()`
 
+## Events **NEW**
+Events are functions that will be executed when set a language
 
+To set events, an object with the events to be executed must be added as a second parameter to a `LANGUAGE.set()`
+
+```js
+// Example Code
+LANGUAJE.set("EN",{
+    load() {
+        //load will be executed once the file has been downloaded and is a valid JSON.
+        console.log("loaded event")
+    },
+    error(code) {
+        //error will be executed if an error occurs when importing the file, the error identifier is passed as a parameter
+
+        //code: "404" means the file was not found
+
+        //code: "InvalidJSON" means the file is not a valid JSON file
+        console.log(code,"error event")
+    },
+});
+```
 
 ## Langer Functions 
 | function | action |
 |---|---|
-| `LANGUAJE.setRoute(rout)` | parameter string: set folder where the json files will be obtained |
-| `LANGUAJE.set(filename)` | parameter string or object: set file from which the language data will be obtained |
+| `LANGUAJE.setRoute(rout)` | `parameter string` set folder where the json files will be obtained |
+| `LANGUAJE.set(filename or object, object)` | `String parameter` Sets the file where the language will be retrieved from `Obj parameter` Sets the Language using the object passed to it `parameter 2 Obj` sets the events to run. |
 | `LANGUAJE.Update()` | which allows updating the content of elements that were added after `LANGUAJE.set(filename)` |
 
 ## Important Note
@@ -175,7 +196,3 @@ for the placeholder to change, you must make sure that when you change the attri
 ```
 
 **`Thank you for reading! sorry for the mistakes in this documentation`  :sweat_smile:**
-
-
-
-
