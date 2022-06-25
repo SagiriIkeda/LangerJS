@@ -158,7 +158,7 @@ In order for the `%user%` placeholder to be **replaced** with the **content** yo
 `NOTE: 
 for the placeholder to change, you must make sure that when you change the attribute it is before doing LANGUAGE.set()`
 
-## Events **NEW**
+## Events `NEW`
 Events are functions that will be executed when set a language
 
 To set events, an object with the events to be executed must be added as a second parameter to a `LANGUAGE.set()`
