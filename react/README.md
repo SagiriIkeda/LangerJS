@@ -1,4 +1,4 @@
-# LANGER React Version 6
+# LANGER React
 
 Version of Langer compatible with React JS `Note: If your project does not use React do not use this version`
 
@@ -7,7 +7,7 @@ We recommend **reading** the **documentation of the normal version first** in or
 **to install this version use**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/DouglasAndres2020/Langer@6/React/Langer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/SagiriIkeda/Langer@6/React/Langer.min.js"></script>
 ```
 
 the way to initialize is the same as the normal version!
@@ -19,6 +19,8 @@ let LANGUAJE = new LANGUAJE6({
     defaultText:"(undefined)" //string: Text that will be used in case a key is not found in the selected language.
 });
 ```
+`Note: You need to make sure the initialization is before running ReactDOM.render() or ReactDOM.createRoot()`
+
 
 The way to set the path of the `.json` files remains the same
 
@@ -33,7 +35,7 @@ but, the way to create elements now is using `Lang` components! Which will be up
 <Lang>key</Lang>
 ```
 
-## Placeholders `BETA`
+## Placeholders
 the way to use placeholders with react is different, to use them you must add the `place` property to your `lang` component with an object with the placeholders you want
 
 ```json
@@ -45,5 +47,3 @@ the way to use placeholders with react is different, to use them you must add th
 //example
 <Lang place={{user:"Example"}}>test</Lang>
 ```
-
-
