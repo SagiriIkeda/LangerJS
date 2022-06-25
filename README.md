@@ -7,7 +7,7 @@ Langer uses json files to have your page in one language or another.
 
 To install this library you must first link the js file in your `head` tag
 ```html
-<script src="https://cdn.jsdelivr.net/gh/SagiriIkeda/LangerJS@6/src/Langer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/SagiriIkeda/LangerJS@6.3/src/Langer.min.js"></script>
 ```
 you must use this syntax so that the content of your **.json** file can be returned
 ```html
