@@ -5,7 +5,7 @@
 To install this version as at the moment we do not have an `npm` you must download the following file, and preferably place it where your `index.js` is located
 
 ```js
-https://cdn.jsdelivr.net/gh/SagiriIkeda/LangerJS@6/Discord/Langer.js
+https://cdn.jsdelivr.net/gh/SagiriIkeda/LangerJS@6.3/Discord/Langer.js
 ```
 previous knowledge about classes, objects and arrays is recommended
 
